@@ -1,11 +1,11 @@
 ---
 name: inception-saving-core
-description: Use only in Claude projects whose instructions say "Part of Inception" (formerly inception-saving): starting a session, saving work to the project's files ("save", "RS"), loose ends ("LE"), housekeeping ("HK"), check email ("CE"), wrap up ("WU"), moving to a new chat, starting a new project, and "check for updates".
+description: Use only in Claude projects whose instructions say "Part of Inception" (formerly inception-saving): starting a session, saving work to the project's files ("save", "RS"), loose ends ("LE"), housekeeping ("HK"), check email ("CE"), wrap up ("WU"), moving to a new chat, starting a new module, and "check for updates".
 ---
 
 # Inception: Saving Between Chats (Core)
 
-**Core skill, Inception alpha 0.6 (11/25/2026).** Part of Inception's Core (formerly `inception-saving`). Don't edit this file: the owner's own changes go in their settings (the "Inception settings" block and the Inception project's `claude/my-changes.md`) and win over this skill.
+**Core skill, Inception alpha 0.7 (11/25/2026).** Part of Inception's Core (formerly `inception-saving`). Don't edit this file: the owner's own changes go in their settings (the "Inception settings" block and the Inception project's `claude/my-changes.md`) and win over this skill.
 
 **Where this applies:** only in projects whose instructions say "Part of Inception".
 
@@ -60,14 +60,14 @@ Suggest the new chat's name: project short name plus today's date as YYYYMMDD (e
 
 ## Updates ("check for updates")
 Runs in any Inception project: at every Housekeeping (quietly), and whenever the owner says **"check for updates"**.
-1. **Cheap check first:** read https://raw.githubusercontent.com/MattMartin650/inception-core/main/VERSION.md (a web fetch; no sign-in needed). It lists the latest version of each Core skill. Compare with the version in the header of each installed Core skill (this file says "alpha 0.6"). Skills that didn't change keep their older version number.
+1. **Cheap check first:** read https://raw.githubusercontent.com/MattMartin650/inception-core/main/VERSION.md (a web fetch; no sign-in needed). It lists the latest version of each Core skill. Compare with the version in the header of each installed Core skill (this file says "alpha 0.7"). Skills that didn't change keep their older version number.
 2. **Same:** say nothing at Housekeeping; "You're up to date" if they asked.
 3. **Newer:** tell them in plain words what changed (the "What's new" part of VERSION.md) and which skills to swap. Give a direct download link for each new ZIP: https://github.com/MattMartin650/inception-core/raw/main/releases/<ZIP name>. Then, in the main window's left sidebar, **Plugins** → **⋯** next to each old skill → Delete → the black **Add** button (top right) → upload the new ZIPs, selecting them all at once. (The Plugins page inside Settings has no Add button.) New skills load in the next new chat.
 4. **After they confirm:** in the Inception project, update "Inception version installed" and the change log in `claude/my-changes.md` (elsewhere, ask them to say "updated to <version>" there). If the new version conflicts with one of their own rules, point it out and let them decide.
 5. **Can't reach GitHub:** try once more, then use the backup releases folder linked in `claude/my-changes.md` if there is one; otherwise say so in one line and skip. Never guess a version.
 
-## Starting a new project
-When a topic will run long, has its own people, money or schedule, or keeps crowding out other work, suggest a new project (honest opinion first; they decide).
+## Starting a new module
+A **module** is a project that does one specialized thing (the Inception project is the home base, not a module). When a topic will run long, has its own people, money or schedule, or keeps crowding out other work, suggest a new module (honest opinion first; they decide).
 1. Name it: a full name and a short name.
 2. Write its starting prompt in a code block: its lane (what it owns and doesn't), files to create, privacy rules, and what's already known (people, dates, open items). Its instructions must begin with the line `Part of Inception.`
 3. The owner creates the project in Claude, pastes the instructions and the prompt, and names and pins the first chat.
@@ -75,6 +75,7 @@ When a topic will run long, has its own people, money or schedule, or keeps crow
 5. Move the topic's notes to the new project; the old one keeps only a pointer.
 
 ## Changelog
+- **alpha 0.7 (11/25/2026)**: specialized projects are called "modules"; "Starting a new project" is now "Starting a new module".
 - **alpha 0.6 (11/25/2026)**: update check reads the public inception-core repo on GitHub (live, no sign-in) instead of the Drive folder, with direct ZIP download links.
 - **alpha 0.5 (11/23/2026)**: inbox check pulls the email label list first and names the exact label for each "Can archive" email; update check notes that unchanged skills keep their old version.
 - **alpha 0.4 (11/9/2026)**: update check works in any project and at every Housekeeping, cheaply (versioned ZIP names first, the Handbook only when newer); the home project's manual is `my-changes.md`; manuals stay about two pages; backups reworded for any setup; saving-fails rule; paths made consistent.
