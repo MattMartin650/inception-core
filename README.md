@@ -7,7 +7,7 @@ Released Core skills for Inception, a way to set up Claude so it runs real parts
 ## What's here
 
 - `VERSION.md` – the latest version of each Core skill, with direct download links. Your Claude's update check reads this.
-- `releases/` – the skill ZIPs to upload on Claude's Plugins page. No GitHub account needed to download.
-- `core/` – the same skills as plain text, for reading.
+- `releases/` – the skill ZIPs, a backup way to install: upload them on Claude's Plugins page. No GitHub account needed to download.
+- `core/` – the skills as plain text. Your Claude reads these to install and update the skills for you with one click.
 
 Changes are made in a separate master copy and released here.

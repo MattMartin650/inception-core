@@ -5,7 +5,7 @@ description: Use only in Claude projects whose instructions say "Part of Incepti
 
 # Inception: Saving Between Chats (Core)
 
-**Core skill, Inception alpha 0.7 (11/25/2026).** Part of Inception's Core (formerly `inception-saving`). Don't edit this file: the owner's own changes go in their settings (the "Inception settings" block and the Inception project's `claude/my-changes.md`) and win over this skill.
+**Core skill, Inception alpha 0.8 (11/25/2026).** Part of Inception's Core (formerly `inception-saving`). Don't edit this file: the owner's own changes go in their settings (the "Inception settings" block and the Inception project's `claude/my-changes.md`) and win over this skill.
 
 **Where this applies:** only in projects whose instructions say "Part of Inception".
 
@@ -44,7 +44,7 @@ When the chat has been compressed, the next save rebuilds from the real earlier 
 - **CE** (Check Email): just the inbox check, any time, without the rest of Housekeeping.
 - **WU** (Wrap Up): the short close before stopping: finish or note anything half-done, save if needed, close tabs, a few-line report.
 
-**The inbox check** (HK and CE; skip if the manual names no email label or inbox): search for this project's mail and give three lists, emails lettered under each, one line each (sender | subject | why, with a link): **Can delete** (promos, pitches, expired notices; flag phishing), **Can archive** (receipts, statements, closed threads), **Needs you** (real people waiting, deadlines, action required). **Before writing the Can archive list, pull their email label list** and name the exact label(s) each email gets; plain archive with no label only when no label fits. They answer per email ("2a delete, rest of 3 archive"). Unsure between delete and archive: archive. Nothing deleted or archived before their OK.
+**The inbox check** (HK and CE; skip if the manual names no email label or inbox): search for this project's mail and give three lists, emails lettered under each, one line each (sender | subject | why, with a link): **Can delete** (promos, pitches, expired notices, and anything with no value later: routine notifications, reminders, birthday notices; flag phishing), **Can archive** (only mail they might look up later: receipts, statements, decisions, real correspondence), **Needs you** (real people waiting, deadlines, action required). **Before writing the Can archive list, pull their email label list** and name the exact label(s) each email gets; plain archive with no label only when no label fits. They answer per email ("2a delete, rest of 3 archive"). Unsure whether they'd ever look it up: archive. Nothing deleted or archived before their OK.
 
 ## Moving to a new chat ("move chat")
 Only after the chat has compressed, or when a very long chat switches topics; at most once a day. Save first, then give a starting prompt in a code block:
@@ -60,9 +60,13 @@ Suggest the new chat's name: project short name plus today's date as YYYYMMDD (e
 
 ## Updates ("check for updates")
 Runs in any Inception project: at every Housekeeping (quietly), and whenever the owner says **"check for updates"**.
-1. **Cheap check first:** read https://raw.githubusercontent.com/MattMartin650/inception-core/main/VERSION.md (a web fetch; no sign-in needed). It lists the latest version of each Core skill. Compare with the version in the header of each installed Core skill (this file says "alpha 0.7"). Skills that didn't change keep their older version number.
+1. **Cheap check first:** read https://raw.githubusercontent.com/MattMartin650/inception-core/main/VERSION.md (a web fetch; no sign-in needed). It lists the latest version of each Core skill. Compare with the version in the header of each installed Core skill (this file says "alpha 0.8"). Skills that didn't change keep their older version number.
 2. **Same:** say nothing at Housekeeping; "You're up to date" if they asked.
-3. **Newer:** tell them in plain words what changed (the "What's new" part of VERSION.md) and which skills to swap. Give a direct download link for each new ZIP: https://github.com/MattMartin650/inception-core/raw/main/releases/<ZIP name>. Then, in the main window's left sidebar, **Plugins** → **⋯** next to each old skill → Delete → the black **Add** button (top right) → upload the new ZIPs, selecting them all at once. (The Plugins page inside Settings has no Add button.) New skills load in the next new chat.
+3. **Newer:** tell them in plain words what changed (the "What's new" part of VERSION.md) and which skills change. Then update them **with an Update card** (no downloading or deleting):
+   - a. Get each changed skill's exact new text from https://raw.githubusercontent.com/MattMartin650/inception-core/main/core/<skill name>/SKILL.md with a tool that returns the file word for word (your code or shell tool, a download). Never retype it or use a summary: a web-page reader that summarizes isn't good enough.
+   - b. If you have a skill-proposal tool (it shows the owner a card to save or update a skill), propose each changed skill as an update to their existing skill, with the full new text. Tell them: "Click **Update** on each card." Then go to step 4.
+   - c. **Fallback** (no proposal tool, no card appears, or you couldn't get the exact text): give a direct download link for each new ZIP, https://github.com/MattMartin650/inception-core/raw/main/releases/<ZIP name>, then in the main window's left sidebar: **Plugins** → **⋯** next to each old skill → Delete → the black **Add** button (top right) → upload the new ZIPs, selecting them all at once. (The Plugins page inside Settings has no Add button.)
+   - New versions load in the next new chat.
 4. **After they confirm:** in the Inception project, update "Inception version installed" and the change log in `claude/my-changes.md` (elsewhere, ask them to say "updated to <version>" there). If the new version conflicts with one of their own rules, point it out and let them decide.
 5. **Can't reach GitHub:** try once more, then use the backup releases folder linked in `claude/my-changes.md` if there is one; otherwise say so in one line and skip. Never guess a version.
 
@@ -75,6 +79,7 @@ A **module** is a project that does one specialized thing (the Inception project
 5. Move the topic's notes to the new project; the old one keeps only a pointer.
 
 ## Changelog
+- **alpha 0.8 (11/25/2026)**: updates come as Update cards (exact text from GitHub, one click), with the ZIP download as the fallback; inbox check: no-value mail goes under Can delete, Can archive only for mail worth looking up later.
 - **alpha 0.7 (11/25/2026)**: specialized projects are called "modules"; "Starting a new project" is now "Starting a new module".
 - **alpha 0.6 (11/25/2026)**: update check reads the public inception-core repo on GitHub (live, no sign-in) instead of the Drive folder, with direct ZIP download links.
 - **alpha 0.5 (11/23/2026)**: inbox check pulls the email label list first and names the exact label for each "Can archive" email; update check notes that unchanged skills keep their old version.
